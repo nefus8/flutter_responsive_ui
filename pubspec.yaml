@@ -1,8 +1,7 @@
 name: flutter_responsive_ui
 description: This flutter package allows you to resize font responsively and get to know what kind of device the app is running on.
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/nefus8/flutter_responsive_ui
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
