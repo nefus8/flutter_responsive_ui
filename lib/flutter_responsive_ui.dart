@@ -35,7 +35,6 @@ class ResponsiveSize {
     double largeTabletSmallerScaleFactor = 1.4,
     double desktopSmallerScaleFactor = 1.65,
   }) {
-
     /// The initValues function is used to set the default values when the app stars
     _mobileSizeLimit = mobileSizeLimit;
     _smallTabletSizeLimit = smallTabletSizeLimit;
@@ -60,37 +59,42 @@ class ResponsiveSize {
   /// The function that return whether or not it's a tablet (small and large)
   static bool isTablet(BuildContext context) {
     double shortestSide = MediaQuery.of(context).size.shortestSide;
-    return (shortestSide >= _mobileSizeLimit && shortestSide < _largeTabletSizeLimit);
+    return (shortestSide >= _mobileSizeLimit &&
+        shortestSide < _largeTabletSizeLimit);
   }
 
   /// The function that return whether or not it's a small tablet
   static bool isSmallTablet(BuildContext context) {
     double shortestSide = MediaQuery.of(context).size.shortestSide;
-    return (shortestSide >= _mobileSizeLimit && shortestSide < _smallTabletSizeLimit);
+    return (shortestSide >= _mobileSizeLimit &&
+        shortestSide < _smallTabletSizeLimit);
   }
 
   /// The function that return whether or not it's a large tablet
   static bool isLargeTablet(BuildContext context) {
     double shortestSide = MediaQuery.of(context).size.shortestSide;
-    return (shortestSide >= _smallTabletSizeLimit && shortestSide < _largeTabletSizeLimit);
+    return (shortestSide >= _smallTabletSizeLimit &&
+        shortestSide < _largeTabletSizeLimit);
   }
 
   /// The function that return whether or not it's a desktop
   static bool isDesktop(BuildContext context) {
     return (MediaQuery.of(context).size.shortestSide >= _largeTabletSizeLimit);
   }
-  
+
   /// The function that return the responsive size
   static double getResponsiveSize(BuildContext context, double size) {
     double shortestSideSize = MediaQuery.of(context).size.shortestSide;
     if (shortestSideSize < _mobileSizeLimit) {
-      return size*_mobileScaleFactor;
-    } else if (shortestSideSize >= _mobileSizeLimit && shortestSideSize < _smallTabletSizeLimit) {
-      return size*_smallTabletScaleFactor;
-    } else if (shortestSideSize >= _smallTabletSizeLimit && shortestSideSize < _largeTabletSizeLimit) {
-      return size*_largeTabletScaleFactor;
+      return size * _mobileScaleFactor;
+    } else if (shortestSideSize >= _mobileSizeLimit &&
+        shortestSideSize < _smallTabletSizeLimit) {
+      return size * _smallTabletScaleFactor;
+    } else if (shortestSideSize >= _smallTabletSizeLimit &&
+        shortestSideSize < _largeTabletSizeLimit) {
+      return size * _largeTabletScaleFactor;
     } else {
-      return size*_desktopScaleFactor;
+      return size * _desktopScaleFactor;
     }
   }
 
@@ -98,27 +102,32 @@ class ResponsiveSize {
   static double getSmallerResponsiveSize(BuildContext context, double size) {
     double shortestSideSize = MediaQuery.of(context).size.shortestSide;
     if (shortestSideSize < _mobileSizeLimit) {
-      return size*_mobileSmallerScaleFactor;
-    } else if (shortestSideSize >= _mobileSizeLimit && shortestSideSize < _smallTabletSizeLimit) {
-      return size*_smallTabletSmallerScaleFactor;
-    } else if (shortestSideSize >= _smallTabletSizeLimit && shortestSideSize < _largeTabletSizeLimit) {
-      return size*_largeTabletSmallerScaleFactor;
+      return size * _mobileSmallerScaleFactor;
+    } else if (shortestSideSize >= _mobileSizeLimit &&
+        shortestSideSize < _smallTabletSizeLimit) {
+      return size * _smallTabletSmallerScaleFactor;
+    } else if (shortestSideSize >= _smallTabletSizeLimit &&
+        shortestSideSize < _largeTabletSizeLimit) {
+      return size * _largeTabletSmallerScaleFactor;
     } else {
-      return size*_desktopSmallerScaleFactor;
+      return size * _desktopSmallerScaleFactor;
     }
   }
 
   /// The function that return the responsive grid item. You can choose the starting column count.
-  static int responsiveGridColumnCount(BuildContext context, {int startColCount = 2}) {
+  static int responsiveGridColumnCount(BuildContext context,
+      {int startColCount = 2}) {
     double shortestSideSize = MediaQuery.of(context).size.shortestSide;
     if (shortestSideSize < _mobileSizeLimit) {
       return startColCount;
-    } else if (shortestSideSize >= _mobileSizeLimit && shortestSideSize < _smallTabletSizeLimit) {
-      return startColCount+1;
-    } else if (shortestSideSize >= _smallTabletSizeLimit && shortestSideSize < _largeTabletSizeLimit) {
-      return startColCount+2;
+    } else if (shortestSideSize >= _mobileSizeLimit &&
+        shortestSideSize < _smallTabletSizeLimit) {
+      return startColCount + 1;
+    } else if (shortestSideSize >= _smallTabletSizeLimit &&
+        shortestSideSize < _largeTabletSizeLimit) {
+      return startColCount + 2;
     } else {
-      return startColCount+3;
+      return startColCount + 3;
     }
   }
 }
