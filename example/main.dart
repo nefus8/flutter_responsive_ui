@@ -38,32 +38,35 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             /// You can use the other functions to test if you're on big or small tablet, or just tablet or on desktop
-            ResponsiveSize.isMobile(context)
+            ResponsiveSize.isMobile(context: context)
                 ? Text("We're on mobile")
                 : Text("We're not on mobile"),
 
             /// Here we use the function getResponsiveSize to change the size of the text depending on the device
             Text("This text has a responsive font size !",
                 style: TextStyle(
-                    fontSize: ResponsiveSize.getResponsiveSize(context, 15))),
+                    fontSize: ResponsiveSize.getResponsiveSize(
+                        context: context, size: 15))),
 
             /// Here is the same as above, but the scale factor will be lower
             Text("This text has a smaller responsive font size !",
                 style: TextStyle(
-                    fontSize:
-                        ResponsiveSize.getSmallerResponsiveSize(context, 15))),
+                    fontSize: ResponsiveSize.getSmallerResponsiveSize(
+                        context: context, size: 15))),
             Container(
-              height: ResponsiveSize.getResponsiveSize(context, 500),
+              height:
+                  ResponsiveSize.getResponsiveSize(context: context, size: 500),
               child: GridView.count(
-                crossAxisSpacing: ResponsiveSize.getResponsiveSize(context, 10),
-                mainAxisSpacing:
-                    ResponsiveSize.getSmallerResponsiveSize(context, 10),
+                crossAxisSpacing: ResponsiveSize.getResponsiveSize(
+                    context: context, size: 10),
+                mainAxisSpacing: ResponsiveSize.getSmallerResponsiveSize(
+                    context: context, size: 10),
 
                 /// Here we use the responsive package to get a responsive cross axis column numbers
                 /// We can also specify the starter amount (2 by default on mobile) using the "startColCount" parameter
                 /// to get more columns if needed.
                 crossAxisCount:
-                    ResponsiveSize.responsiveGridColumnCount(context),
+                    ResponsiveSize.responsiveGridColumnCount(context: context),
                 children: [
                   Container(
                     color: Colors.grey,
